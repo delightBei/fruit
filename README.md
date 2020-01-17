@@ -1,21 +1,21 @@
 # byc
 
-> A Vue.js project
+> NodeJs + VueJs (Express + ElementUI)
 
-## Build Setup
+>本项目分为前端，后台管理和服务器
 
-``` bash
-# install dependencies
-npm install
+## 服务器
 
-# serve with hot reload at localhost:8080
-npm run dev
+>作为数据库提供数据，端口设置为3000，使用MongoDB
 
-# build for production with minification
-npm run build
+>优先部署
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+## 后台管理页面
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+>使用element UI 作为前端设计，使用Vue-router实现路由功能
+
+>与服务器进行交互，实现数据的增删改查，并实现基本的权限管理功能
+
+## 前端
+
+>目前只写了基本路由管理，功能有待完善
