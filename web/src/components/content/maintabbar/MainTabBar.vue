@@ -1,4 +1,5 @@
 <template>
+<div class="tab-bar w-100">
   <tab-bar>
     <tab-bar-item link="/home">
       <img slot="icon" src="../../../assets/img/tabbar/home.svg" alt="">
@@ -21,6 +22,7 @@
       <div slot="text">我的</div>
     </tab-bar-item>
   </tab-bar>
+</div>
 </template>
 
   <script>
@@ -35,4 +37,5 @@
   </script>
 
 <style scoped>
+ 
 </style>

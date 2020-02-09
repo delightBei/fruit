@@ -8,6 +8,9 @@
        <el-form-item label="价格">
         <el-input v-model="model.price"></el-input>
       </el-form-item>
+      <el-form-item label="介绍">
+        <el-input v-model="model.present"></el-input>
+      </el-form-item>
       <el-form-item label="图片">
         <el-upload
           class="avatar-uploader"
@@ -15,9 +18,31 @@
           :show-file-list="false"
           :on-success="afterUpload"
         >
-  <img v-if="model.icon" :src="model.icon" class="avatar">
-  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-</el-upload>
+          <img v-if="model.icon" :src="model.icon" class="avatar">
+         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
+      </el-form-item>
+        <el-form-item label="图片二">
+        <el-upload
+          class="avatar-uploader"
+          :action="$http.defaults.baseURL + '/upload'"
+          :show-file-list="false"
+          :on-success="afterUploadImg"
+        >
+          <img v-if="model.img" :src="model.img" class="avatar">
+         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
+      </el-form-item>
+       <el-form-item label="图片三">
+        <el-upload
+          class="avatar-uploader"
+          :action="$http.defaults.baseURL + '/upload'"
+          :show-file-list="false"
+          :on-success="afterUploadImage"
+        >
+          <img v-if="model.image" :src="model.image" class="avatar">
+         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>
@@ -40,7 +65,14 @@ export default {
     afterUpload(res) {
        this.$set(this.model, 'icon' , res.url);
        this.model.icon = res.url;
-       console.log(this.model);
+    },
+    afterUploadImg(res) {
+      this.$set(this.model, 'img' , res.url);
+      this.model.img = res.url;
+    },
+    afterUploadImage(res) {
+      this.$set(this.model, 'image' , res.url);
+      this.model.image = res.url;
     },
       async save() {
       let res;
@@ -58,7 +90,6 @@ export default {
     async fetch(){
     const res = await this.$http.get(`rest/items/${this.id}`);
     this.model = res.data;
-    console.log(this.model);
     },
   },
   created(){

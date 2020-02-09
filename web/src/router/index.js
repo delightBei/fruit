@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import Article from '../views/article/Article'
+import Item from '../views/item/Item'
 const Home = () => import('../views/home/Home')
 const Category = () => import('../views/category/Category')
 const Cart = () => import('../views/cart/Cart')
 const Profile = () => import('../views/profile/Profile')
 const Detail = () => import('../views/detail/Detail')
+const Pay = () => import('../views/pay/Pay')
+
 
 // 1.安装VueRouter
 Vue.use(VueRouter)
@@ -35,6 +38,22 @@ const routes = [
   {
     path: '/detail',
     component: Detail
+  },
+  {
+    path: '/pay',
+    component: Pay
+  },
+  {
+    path: '/articles/:id',
+    name: 'article',
+    component: Article,
+    props: true
+  },
+  {
+    path: '/items/:id',
+    name: 'item',
+    component: Item,
+    props: true
   }
 ]
 
